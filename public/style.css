@@ -1,0 +1,8 @@
+body{
+    height: 100vh;
+    
+}
+.ps-menu-label{
+    display: flex;
+    text-align: center;
+}
