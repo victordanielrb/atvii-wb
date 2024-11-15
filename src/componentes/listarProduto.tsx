@@ -11,7 +11,7 @@ const fakefunc = () => {
     console.log('a');
     
 }
-export default class ListaCliente extends Component<props> {
+export default class ListaProduto extends Component<props> {
     render() {
         let array = []
         for (let i = 0; i < this.props.quantidade; i++) {
@@ -30,7 +30,7 @@ export default class ListaCliente extends Component<props> {
                     return (
                     <div className="flex collection-item align middle content-center items-center justify-center">
                     <a className="cursor-pointer text-xl mx-4">
-                        Cliente {index}
+                        Produto {index}
                     </a>
                         <div className="flex">
                         <Botao cor="#0088FE" texto="Editar" onClick={fakefunc}/>

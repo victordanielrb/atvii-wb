@@ -1,9 +1,10 @@
 import { Component } from "react";
-import BarraNavegacao from "./barraNavegacao";
+import ListaProduto from "./listarProduto";
 import FormularioCadastroCliente from "./formularioCadastroCliente";
 import ListaCliente from "./listaCliente";
-import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-
+import Sidebari from "./sidebar";
+import MainPage from "./mainPage";
+import ListaVendas from "./listarVendas";
 type state = {
     tela: string,
     collapsed: boolean,
@@ -20,22 +21,7 @@ export default class Roteador extends Component<{}, state> {
         }
         this.selecionarView = this.selecionarView.bind(this)
     }
-    
-    componentDidMount() {
-        window.addEventListener('resize', this.handleResize);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize);
-    }
-
-    handleResize = () => {
-        const windowWidth = window.innerWidth;
-        this.setState({
-            windowWidth,
-            collapsed: windowWidth < 640
-        });
-    }
+   
 
     selecionarView(novaTela: string, evento: Event) {
         evento.preventDefault()
@@ -49,42 +35,24 @@ export default class Roteador extends Component<{}, state> {
         console.log(this.state.windowWidth);
         if (this.state.tela === 'Clientes') {
             return (
-                <div className="m-auto" style={{ display: 'flex', height: '100vh', overflow: 'hidden', margin:'auto' }}>
-                    <Sidebar className=" h-full my-auto " collapsed={this.state.collapsed} collapsedWidth="5rem">
-                    
-                            
-                        
-                        <Menu className="w-full h-full text-center bg-[#ee6e73] overflow-hidden" menuItemStyles={{
-                            button: {
-                                color: 'white',
-                                [`&:hover`]: {
-                                    backgroundColor: '#9E5F61',
-                                    color: 'white',
-                                },
-                            }
-                        }}>
-                            <div className="w-full bg-[#9E5F61] p-[4px]" onClick={() => this.setState({collapsed: !this.state.collapsed})}>
-                            <a   className=" min-w-full   text-center text-white cursor-pointer h-full font-sans text-4xl align-middle">
-                                WB
-                            </a>
-                            </div>
-                            <MenuItem className="m-0">{this.state.collapsed ? <img className="m-auto" src="img/customer.png" /> : 'Clientes'}</MenuItem>
-                            <MenuItem>{this.state.collapsed ? <img className="m-auto" src="img/box.png" /> : 'Produtos'}</MenuItem>
-                            <MenuItem>{this.state.collapsed ? <img className="m-auto" src="img/report.png" /> : 'Vendas'}</MenuItem>
-                        </Menu>
-                    </Sidebar>
-                    <main style={{ padding: 10, flex: 1, overflow: 'hidden' }}>
-                        <div style={{ height: '100%', overflow: 'hidden' }}>
-                            {/* Conteúdo principal */}
-                        </div>
-                    </main>
-                </div>
+                <MainPage func={this.selecionarView}>
+                     <ListaCliente tema="pink" quantidade={5} />
+
+                </MainPage>
             )
-        } else {
+        } else if (this.state.tela === 'Produtos') {
             return (
-                <>
-                    {/* Outra tela */}
-                </>
+                <MainPage func={this.selecionarView}>
+                     <ListaProduto tema="pink" quantidade={5} />
+
+                </MainPage>
+            )
+        }
+        else if (this.state.tela === 'Vendas') {
+            return (
+                <MainPage func={this.selecionarView}>
+                    <ListaVendas tema="pink" quantidade={5} />
+                </MainPage>
             )
         }
     }
