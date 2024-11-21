@@ -7,7 +7,8 @@ import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 type state = {
     tela: string,
     collapsed: boolean,
-    windowWidth: number
+    windowWidth: number,
+    toggled: boolean
 }
 type props = {
     func: Function
@@ -20,7 +21,8 @@ export default class Sidebari extends Component<props,state> {
         this.state = {
             tela: 'Clientes',
             collapsed: window.innerWidth < 640,
-            windowWidth: window.innerWidth
+            windowWidth: window.innerWidth,
+            toggled: false
         }
         
 
@@ -44,7 +46,7 @@ export default class Sidebari extends Component<props,state> {
 
     render() {
         console.log(this.state.windowWidth);
-        
+            if (this.state.windowWidth > 400) {
             return (
                     <Sidebar className=" h-full my-auto " collapsed={this.state.collapsed} collapsedWidth="5rem">
                     
@@ -67,13 +69,31 @@ export default class Sidebari extends Component<props,state> {
                             <MenuItem onClick={(e) => {this.props.func('Clientes', e)}} className="m-0">{this.state.collapsed ? <img className="m-auto" src="img/customer.png" /> : 'Clientes'}</MenuItem>
                             <MenuItem onClick={(e) => {this.props.func('Produtos', e)}}>{this.state.collapsed ? <img className="m-auto" src="img/box.png" /> : 'Produtos'}</MenuItem>
                             <MenuItem onClick={(e) => {this.props.func('Vendas', e)}}>{this.state.collapsed ? <img className="m-auto" src="img/report.png" /> : 'Vendas'}</MenuItem>
-                            <MenuItem onClick={(e) => {this.props.func('Listar', e)}}>{this.state.collapsed ? <img className="m-auto" src="img/report.png" /> : 'Listar'}</MenuItem>
+                            <MenuItem onClick={(e) => {this.props.func('Listagem', e)}}>{this.state.collapsed ? <img className="m-auto" src="img/report.png" /> : 'Listagens'}</MenuItem>
 
-                           
                         </Menu>
                     </Sidebar>
+
                  
-            )
+            )}
+        else {return(
+    <div style={{ display: 'flex', height: '100%', minHeight: '400px' }}>
+      <Sidebar className="bg-white" onBackdropClick={() => this.setState({toggled:false})} toggled={this.state.toggled} breakPoint="always">
+        <Menu className="h-full">
+          <MenuItem onClick={(e) => {this.props.func('Clientes', e)}} className="text-black text-xl bold"> Clientes</MenuItem>
+          <MenuItem onClick={(e) => {this.props.func('Produtos', e)}} className="text-black text-xl bold"> Produtos</MenuItem>
+          <MenuItem onClick={(e) => {this.props.func('Vendas', e)}} className="text-black text-xl bold"> Vendas</MenuItem>
+          <MenuItem onClick={(e) => {this.props.func('Listagem', e)}} className="text-black text-xl bold"> Listagens</MenuItem>
+        </Menu>
+      </Sidebar>
+      
+        
+          <button className="sb-button absolute z-10 bg-pink-300 m-1 p-2 rounded-md" onClick={() => this.setState({toggled:!this.state.toggled})}>
+            <img src="img/menu.png"></img>
+          </button>
+     
+    </div>
+     )   }
       
     }
 }

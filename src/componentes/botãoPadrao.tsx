@@ -9,16 +9,16 @@ type props = {
     texto:string,
 }
 
-export default class Botao extends Component<props> {
+const Botao = (props:props) => {
     
-    render() {
-        let estilo = ` w-[6rem] h-[3] text-xl   align-middle rounded-md text-center text-white active bg-[${this.props.cor}]`
+    
+        let estilo = ` w-[6rem] h-[3] text-xl   align-middle rounded-md text-center text-white active bg-[${props.cor}]`
         
         
         return (
-           <a onClick={this.props.onClick} className={'m-2 cursor-pointer'}>
-                <p className={estilo}>{this.props.texto}</p>
+           <a onClick={props.onClick} className={'m-2 cursor-pointer'}>
+                <p className={estilo}>{props.texto}</p>
            </a>
         )
     }
-}
+export default Botao;

@@ -11,13 +11,13 @@ const fakefunc = () => {
     console.log('a');
     
 }
-export default class ListaVendas extends Component<props> {
-    render() {
+const ListaVendas = (props: props) => {
+
         let array = []
-        for (let i = 0; i < this.props.quantidade; i++) {
+        for (let i = 0; i < props.quantidade; i++) {
             array.push(i)
         }
-        let estilo = `collection-item active ${this.props.tema}`
+        let estilo = `collection-item active ${props.tema}`
         console.log(array);
         
         return (
@@ -33,6 +33,10 @@ export default class ListaVendas extends Component<props> {
 
 
                     </a>
+                <div className="w-full text-center flex justify-center">
+                <Botao cor="#22502A" texto="Cadastrar" onClick={fakefunc}/>
+
+                </div>
                 {array.map((item,index) => {
                     return (
                     <div className="flex collection-item align middle content-center  items-center justify-center">
@@ -51,4 +55,4 @@ export default class ListaVendas extends Component<props> {
             
         )
     }
-}
+export default ListaVendas;
