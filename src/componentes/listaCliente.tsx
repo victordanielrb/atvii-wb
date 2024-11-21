@@ -25,7 +25,7 @@ export default class ListaCliente extends Component<props> {
             
             
 
-            <div className="collection h-full">
+            <div className="collection h-full ">
                 {array.map((item,index) => {
                     return (
                     <div className="flex collection-item align middle content-center items-center justify-center">

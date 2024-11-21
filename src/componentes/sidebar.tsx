@@ -67,6 +67,8 @@ export default class Sidebari extends Component<props,state> {
                             <MenuItem onClick={(e) => {this.props.func('Clientes', e)}} className="m-0">{this.state.collapsed ? <img className="m-auto" src="img/customer.png" /> : 'Clientes'}</MenuItem>
                             <MenuItem onClick={(e) => {this.props.func('Produtos', e)}}>{this.state.collapsed ? <img className="m-auto" src="img/box.png" /> : 'Produtos'}</MenuItem>
                             <MenuItem onClick={(e) => {this.props.func('Vendas', e)}}>{this.state.collapsed ? <img className="m-auto" src="img/report.png" /> : 'Vendas'}</MenuItem>
+                            <MenuItem onClick={(e) => {this.props.func('Listar', e)}}>{this.state.collapsed ? <img className="m-auto" src="img/report.png" /> : 'Listar'}</MenuItem>
+
                            
                         </Menu>
                     </Sidebar>
