@@ -15,7 +15,7 @@ type props = {
 
 
 export default class Sidebari extends Component<props,state> {
-    constructor(props: {func: Function}) {
+    constructor(props: props) {
         super(props)
         this.state = {
             tela: 'Clientes',

@@ -63,14 +63,14 @@ export default class Roteador extends Component<{}, state> {
                 <MainPage func={this.selecionarView}>
                     
 
-                    <ListaVendas tema="pink" quantidade={5} />
+                    <ListaVendas quantidade={5} />
                 </MainPage>
             )
         }
         else if (this.state.tela === 'Listar'){
             return (
                 <MainPage func={this.selecionarView}>
-                    <Listagem tema='pink' quantidade={5} />
+                    <Listagem />
                 </MainPage>
             )
         }

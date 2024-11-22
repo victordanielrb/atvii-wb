@@ -12,7 +12,7 @@ type props = {
 export default class Botao extends Component<props> {
     
     render() {
-        let estilo = ` w-[6rem] h-[3] text-xl   align-middle rounded-md text-center text-white active bg-[${this.props.cor}]`
+        let estilo = `p-2 h-[3] text-xl   align-middle rounded-md text-center text-white active bg-[${this.props.cor}]`
         
         
         return (

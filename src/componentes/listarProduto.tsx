@@ -36,6 +36,7 @@ export default class ListaProduto extends Component<props> {
                         <div className="flex">
                         <Botao cor="#0088FE" texto="Editar" onClick={fakefunc}/>
                         <Botao cor="#AF4565" texto="Deletar" onClick={fakefunc}/>
+                        
                         </div>
                     </div>)
                 })}
