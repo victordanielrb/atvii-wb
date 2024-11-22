@@ -39,6 +39,7 @@ const ListaProduto =(props:props) => {
                         <div className="flex">
                         <Botao cor="#0088FE" texto="Editar" onClick={fakefunc}/>
                         <Botao cor="#AF4565" texto="Deletar" onClick={fakefunc}/>
+                        <Botao cor="#22502A" texto="Comprar" onClick={fakefunc}/>
                         </div>
                     </div>)
                 })}

@@ -34,7 +34,7 @@ const ListaVendas = (props: props) => {
 
                     </a>
                 <div className="w-full text-center flex justify-center">
-                <Botao cor="#22502A" texto="Cadastrar" onClick={fakefunc}/>
+                
 
                 </div>
                 {array.map((item,index) => {

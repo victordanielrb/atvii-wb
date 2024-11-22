@@ -12,7 +12,7 @@ type props = {
 const Botao = (props:props) => {
     
     
-        let estilo = ` w-[6rem] h-[3] text-xl   align-middle rounded-md text-center text-white active bg-[${props.cor}]`
+        let estilo = ` p-2 h-[3] text-xl   align-middle rounded-md text-center text-white active bg-[${props.cor}]`
         
         
         return (

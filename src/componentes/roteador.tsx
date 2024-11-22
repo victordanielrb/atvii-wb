@@ -42,7 +42,6 @@ export default class Roteador extends Component<{}, state> {
         if (this.state.tela === 'Clientes') {
             return (
                 <MainPage func={this.selecionarView}>
-                    <span className="mx-auto text-center flex justify-center"> <Botao cor="green" texto="Cadastrar"  onClick={fakefunc}/></span>
 
                      <ListaCliente tema="pink" quantidade={5} />
 
@@ -51,7 +50,6 @@ export default class Roteador extends Component<{}, state> {
         } else if (this.state.tela === 'Produtos') {
             return (
                 <MainPage func={this.selecionarView}>
-                    <span className="mx-auto text-center flex justify-center"> <Botao cor="green" texto="Cadastrar"  onClick={fakefunc}/></span>
 
                      <ListaProduto tema="pink" quantidade={5} />
 
@@ -67,10 +65,10 @@ export default class Roteador extends Component<{}, state> {
                 </MainPage>
             )
         }
-        else if (this.state.tela === 'Listar'){
+        else if (this.state.tela === 'Listagem'){
             return (
                 <MainPage func={this.selecionarView}>
-                    <Listagem tema='pink' quantidade={5} />
+                    <Listagem/>
                 </MainPage>
             )
         }
