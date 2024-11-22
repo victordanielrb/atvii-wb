@@ -4,7 +4,7 @@ import 'materialize-css/dist/css/materialize.min.css'
 import Botao from "./botãoPadrao";
 
 type props = {
-    tema: string,
+   
     quantidade: number
 }
 const fakefunc = () => {
@@ -17,7 +17,7 @@ const ListaCliente = (props:props) => {
         for (let i = 0; i < props.quantidade; i++) {
             array.push(i)
         }
-        let estilo = `collection-item active ${props.tema}`
+     
         console.log(array);
         
         return (
@@ -27,7 +27,7 @@ const ListaCliente = (props:props) => {
 
             <div className="collection h-full">
                 <div className="w-full text-center flex justify-center">
-                <Botao cor="#22502A" texto="Cadastrar" onClick={fakefunc}/>
+                
 
                 </div>
                 {array.map((item,index) => {

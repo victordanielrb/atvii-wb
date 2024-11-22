@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import 'materialize-css/dist/css/materialize.min.css'
 import Botao from "./botãoPadrao";
 import ListaCliente from "./listaCliente"
+import ListaProduto from "./listarProduto";
 
 const Listagem = () => {
     const [option,setOption] = useState('');
@@ -26,9 +27,10 @@ const Listagem = () => {
 
            </div>
             <div>
-                <div className="flex my-8">
-                    <p className="text-2xl align-middle my-auto text-center mx-4 ">Filtrar por: </p>
+                <div className="flex my-8 flex-col flex-wrap">
                     <div className="flex align-middle items-center my-auto">
+                    <p className="text-2xl align-middle my-auto text-center mx-4  ">Filtrar por: </p>
+
                     {option === 'cliente' ? <>
                     <Botao cor="#0088FE" texto="Consumo (Quantidade) " onClick={fakefunc}/>
                     <Botao cor="#0088FE" texto="Consumo (Preço)" onClick={fakefunc}/>
@@ -38,6 +40,7 @@ const Listagem = () => {
 
 
                     </div>
+                    {option === 'cliente' ? <ListaCliente  quantidade={6}/> : <ListaProduto  quantidade={6}/>}
                 </div>
                 <div>
                 </div>
