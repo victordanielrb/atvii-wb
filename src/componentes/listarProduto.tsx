@@ -17,7 +17,7 @@ const ListaProduto =(props:props) => {
         for (let i = 0; i < props.quantidade; i++) {
             array.push(i)
         }
-        let estilo = `collection-item active ${props.tema}`
+        
         console.log(array);
         
         return (
